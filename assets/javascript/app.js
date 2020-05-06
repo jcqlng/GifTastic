@@ -14,8 +14,8 @@ function populateButtons(searchArray,classToAdd,areaToAddTo){
     for (var i=0; i< searchArray.length;i++){
         var a = $('<button>');
         a.addClass(classToAdd);
-        a.attr('data-type',searchArray[i]),
-        a.text(searchArray[i]),
+        a.attr('data-type',searchArray[i]);
+        a.text(searchArray[i]);
         $(areaToAddTo).append(a);
     }
 };
@@ -23,7 +23,7 @@ function populateButtons(searchArray,classToAdd,areaToAddTo){
 // Click function for search and adding API 
 $(document).on('click', '.searchButton', function(){
     var type = $(this).data('type'),
-    var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=OedtgRRnjivPVer7xxzeP6uSTRH3iYrw&q=&limit=25&offset=0&rating=G&lang=en'
+    var queryURL = `http://api.giphy.com/v1/gifs/search?q=${type}&api_key=t8ncg1WYhNc3YO2YPjIBCWOtjLV9bxlt&limit=10`;
     // AJAX to retrieve the gif images from the website
     $.ajax({url:queryURL, method:'GET'})
     .done(function(response){
@@ -49,5 +49,21 @@ $(document).on('click', '.searchButton', function(){
 
 // functions for the searchImage when clicked
 $(document).on('click', '.searchImage', function(){
-    var
+    var state = $(this).data('state');
+    //if else statement when the search image is clicked to add still or animated images
+    if(state == 'still'){
+        $(this).attr('src', $(this).data('animated'));
+        $(this).attr('data-state', 'still');
+    } else {
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    }
+})
+
+// function for the search to be added at the top with buttons
+$('#addSearch').on('click', function(){
+  var newSearch = $('input').eq(0).val();
+  searchArray.push(newSearch);
+  populateButtons(searchArray, 'searchButton', '#buttonsArea');
+  return false;  
 })
