@@ -24,4 +24,3 @@ Link to site: https://jcqlng.github.io/GifTastic/.
 
 7. Deploy your assignment to Github Pages.
 
-8. **Rejoice**! You just made something really cool.
