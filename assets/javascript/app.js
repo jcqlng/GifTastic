@@ -36,10 +36,18 @@ $(document).on('click', '.searchButton', function(){
             var still = response.data[i].images.fixed_height_still.url;
             var image =$('<img>');
             image.attr('src',still);
-            
-
+            image.attr('data-still',still);
+            image.attr('data-animated',animated);
+            image.attr('data-state','still');
+            image.addClass('searchImage');
+            searchDiv.append(p);
+            searchDiv.append(image);
+            $('#searches').append(searchDiv);
         }
-
     })
+})
 
+// functions for the searchImage when clicked
+$(document).on('click', '.searchImage', function(){
+    var
 })
