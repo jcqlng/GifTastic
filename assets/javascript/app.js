@@ -17,7 +17,10 @@ function populateButtons(searchArray,classToAdd,areaToAddTo){
         a.attr('data-type',searchArray[i]),
         a.text(searchArray[i]),
         $(areaToAddTo).append(a);
-
     }
-
 }
+
+// Click function for search and adding API 
+$(document).on('click', '.searchButton', function(){
+
+})
