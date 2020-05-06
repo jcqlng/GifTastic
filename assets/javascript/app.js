@@ -1,4 +1,7 @@
-
+$(function(){
+    populateButtons(searchArray,'searchButton','#buttonArea');
+    console.log("Page Loaded");
+})
 // Create the arrays of the buttons displayed and to be displayed
 var searchArray = ['Nissan', 'Ford', 'Chevrolet'];
 
