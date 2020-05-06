@@ -1,13 +1,8 @@
-// Create the function and variables. First console log page loading
-$(function(){
-console.log ("Page Loaded")
-
-});
 
 // Create the arrays of the buttons displayed and to be displayed
-var searchArray = ["Nissan, Ford, Chevrolet"];
+var searchArray = ['Nissan', 'Ford', 'Chevrolet'];
 
-// function for the buttons to respond to 
+// function for the buttons to be displayed
 function populateButtons(searchArray,classToAdd,areaToAddTo){
     $(areaToAddTo).empty();
     // Create the for loop 
@@ -22,19 +17,20 @@ function populateButtons(searchArray,classToAdd,areaToAddTo){
 
 // Click function for search and adding API 
 $(document).on('click', '.searchButton', function(){
-    var type = $(this).data('type'),
-    var queryURL = `http://api.giphy.com/v1/gifs/search?q='+type+'&api_key=t8ncg1WYhNc3YO2YPjIBCWOtjLV9bxlt&limit=10`;
+    $('#searches').empty();
+    var type = $(this).data('type');
+    var queryURL = `http://api.giphy.com/v1/gifs/search?q='+type+'api_key=t8ncg1WYhNc3YO2YPjIBCWOtjLV9bxlt&q=vehicles&limit=10&offset=0&rating=PG&lang=en`;
     // AJAX to retrieve the gif images from the website
     $.ajax({url:queryURL, method:'GET'})
     .done(function(response){
         //For loop 
-        for(var i=0; i>response.data.length;i++){
-            var searchDiv = $('div class="search-item">');
+        for(var i=0; i<response.data.length;i++){
+            var searchDiv = $('<div class="search-item">');
             var rating = response.data[i].rating;
-            var p= $('<p>').text('rating:' +rating);
+            var p= $('<p>').text('Rating: ' +rating);
             var animated = response.data[i].images.fixed_height.url;
             var still = response.data[i].images.fixed_height_still.url;
-            var image =$('<img>');
+            var image = $('<img>');
             image.attr('src',still);
             image.attr('data-still',still);
             image.attr('data-animated',animated);
@@ -53,7 +49,7 @@ $(document).on('click', '.searchImage', function(){
     //if else statement when the search image is clicked to add still or animated images
     if(state == 'still'){
         $(this).attr('src', $(this).data('animated'));
-        $(this).attr('data-state', 'still');
+        $(this).attr('data-state', 'animated');
     } else {
         $(this).attr('src', $(this).data('still'));
         $(this).attr('data-state', 'still');
