@@ -23,7 +23,7 @@ function populateButtons(searchArray,classToAdd,areaToAddTo){
 // Click function for search and adding API 
 $(document).on('click', '.searchButton', function(){
     var type = $(this).data('type'),
-    var queryURL = `http://api.giphy.com/v1/gifs/search?q=${type}&api_key=t8ncg1WYhNc3YO2YPjIBCWOtjLV9bxlt&limit=10`;
+    var queryURL = `http://api.giphy.com/v1/gifs/search?q='+type+'&api_key=t8ncg1WYhNc3YO2YPjIBCWOtjLV9bxlt&limit=10`;
     // AJAX to retrieve the gif images from the website
     $.ajax({url:queryURL, method:'GET'})
     .done(function(response){
