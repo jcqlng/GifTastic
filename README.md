@@ -24,3 +24,6 @@ Link to site: https://jcqlng.github.io/GifTastic/.
 
 7. Deploy your assignment to Github Pages.
 
+# Authors and Acknowledgements
+Jackie Geiger - Myself for putting this together with the help of class materials and google search 
+* For ajax - https://api.jquery.com/jquery.ajax/; https://medium.com/coding-design/writing-better-ajax-8ee4a7fb95f
