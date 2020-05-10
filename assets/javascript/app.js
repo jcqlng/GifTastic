@@ -1,5 +1,5 @@
 $(function(){
-    populateButtons(searchArray,'searchButton','#buttonArea');
+    populateButtons(searchArray,'searchButton','#buttonsArea');
     console.log("Page Loaded");
 })
 // Create the arrays of the buttons displayed and to be displayed
@@ -19,11 +19,12 @@ function populateButtons(searchArray,classToAdd,areaToAddTo){
 };
 
 // Click function for search and adding API 
-$(document).on('click', '.searchButton', function(){
+$(document).on('click', '.searchButton', function(sender){
     $('#searches').empty();
     var type = $(this).data('type');
-    var queryURL = `http://api.giphy.com/v1/gifs/search?q='+type+'api_key=t8ncg1WYhNc3YO2YPjIBCWOtjLV9bxlt&q=vehicles&limit=10&offset=0&rating=PG&lang=en`;
-    // AJAX to retrieve the gif images from the website
+    
+    var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=t8ncg1WYhNc3YO2YPjIBCWOtjLV9bxlt&q='+type+'&limit=25&offset=0&rating=G&lang=en';   
+     // AJAX to retrieve the gif images from the website
     $.ajax({url:queryURL, method:'GET'})
     .done(function(response){
         //For loop 
@@ -48,7 +49,7 @@ $(document).on('click', '.searchButton', function(){
 
 // functions for the searchImage when clicked
 $(document).on('click', '.searchImage', function(){
-    var state = $(this).data('state');
+    var state = $(this).data('data-state');
     //if else statement when the search image is clicked to add still or animated images
     if(state == 'still'){
         $(this).attr('src', $(this).data('animated'));
