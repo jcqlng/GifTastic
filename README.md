@@ -26,4 +26,7 @@ Link to site: https://jcqlng.github.io/GifTastic/.
 
 # Authors and Acknowledgements
 Jackie Geiger - Myself for putting this together with the help of class materials and google search 
-* For ajax - https://api.jquery.com/jquery.ajax/; https://medium.com/coding-design/writing-better-ajax-8ee4a7fb95f
+* For ajax - https://api.jquery.com/jquery.ajax/; https://medium.com/coding-design/writing-better-ajax-8ee4a7fb95f; https://www.w3schools.com/jquery/jquery_ajax_get_post.asp ; https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_filters_anything; 
+* For Giphy API - https://support.giphy.com/hc/en-us/articles/360020283431-Request-A-GIPHY-API-Key
+* For help on pausing giphy - https://codepen.io/hoanghals/pen/dZrWLZ
+* Help on over all code - https://codepen.io/castlemaninc/pen/PQZRvW
