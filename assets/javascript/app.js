@@ -48,17 +48,23 @@ $(document).on('click', '.searchButton', function(sender){
 })
 
 // functions for the searchImage when clicked
-$(document).on('click', '.searchImage', function(){
-    var state = $(this).data('data-state');
-    //if else statement when the search image is clicked to add still or animated images
-    if(state == 'still'){
-        $(this).attr('src', $(this).data('animated'));
-        $(this).attr('data-state', 'animated');
+$(document).on('click', '.showImage',  function() {
+
+    var state = $(this).data('state');
+    //If the clicked image's state is still, update its src attribute to what its data-animate value is
+    if (state == "still") {
+        console.log("still image works");
+     // Then, set the image's data-state to animate
+        $(this).attr('src', $(this).data('animate'))
+               .data('state', 'animate');
     } else {
-        $(this).attr('src', $(this).data('still'));
-        $(this).attr('data-state', 'still');
+    //  else set src to the data-still value
+        console.log("animated image works");
+        $(this).attr('src', $(this).data('still'))
+               .data('state', 'still');               
     }
-})
+
+});
 
 // function for the search to be added at the top with buttons
 $('#addSearch').on('click', function(){
@@ -66,4 +72,4 @@ $('#addSearch').on('click', function(){
   searchArray.push(newSearch);
   populateButtons(searchArray, 'searchButton', '#buttonsArea');
   return false;  
-})
+});
